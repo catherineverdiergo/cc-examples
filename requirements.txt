@@ -1,0 +1,7 @@
+requests
+warc3-wet
+lang-id
+maxminddb-geolite2
+plotly
+pandas
+jupyter

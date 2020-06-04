@@ -127,7 +127,7 @@ if __name__ == '__main__':
     list_files = download_wet_files(spark, sys.argv[1], num_files=4)
     with_country = False
     df = load_corpus(spark, list_files, with_country=with_country)
-    df.write.parquet(sys.argv[2])
+    df.write.mode("overwrite").parquet(sys.argv[2])
     df.cache()
     df.show()
     stats(df, "lang", pct=True).show(truncate=False)

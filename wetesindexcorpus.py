@@ -127,6 +127,7 @@ if __name__ == '__main__':
     df = load_corpus(spark, list_files, with_country=with_country)
     df.show()
     (df.repartition("lang")
+       .repartition(5)
        .write.mode("overwrite")
        .partitionBy("lang")
        .parquet(sys.argv[2]))
